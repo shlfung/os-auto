@@ -8,7 +8,7 @@ Feature: Adding and Deleting Users
     Scenario: Login as admin and create a regular user
         Given I open url "https://openspecimen-staging.bcchr.ca/openspecimen"
         When I fill in the username and password and click button "Sign In"
-        When I click on the side bar
+        When I click on the side bar and select "User"
         Then I see in title "Navigate To"
 
     Scenario: Login as the test user
