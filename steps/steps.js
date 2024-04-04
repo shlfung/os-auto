@@ -24,12 +24,31 @@ When('I fill in the username and password and click button {string}', async ({ p
     await page.getByRole('button', { name: '' }).nth(1).click();
   });
 
+
+
+When('I see in title {string}', async ({ page }, keyword) => {
+  //await expect(page).toContainText("Home");
+  //await expect(page.getByText('Home')).toBeVisible();
+  await expect(page.getByRole('heading', { name: keyword })).toBeVisible();
+  //await expect(page.getByRole('heading', { name: 'Sign in to continue to OpenSpecimen' })).toBeVisble();
+});
+
+When('I click on the button {string}', async ({ page }, keyword) => {
+  //await expect(page).toContainText("Home");
+  //await expect(page.getByText('Home')).toBeVisible();
+  //await expect(page.getByRole('heading', { name: keyword })).toBeVisible();
+  //await expect(page.getByRole('heading', { name: 'Sign in to continue to OpenSpecimen' })).toBeVisble();
+  await page.getByRole('button', { name: 'Create' }).click();
+});
+
+
 Then('I see in title {string}', async ({ page }, keyword) => {
   //await expect(page).toContainText("Home");
   //await expect(page.getByText('Home')).toBeVisible();
   await expect(page.getByRole('heading', { name: keyword })).toBeVisible();
   //await expect(page.getByRole('heading', { name: 'Sign in to continue to OpenSpecimen' })).toBeVisble();
 });
+
 
 
 
