@@ -11,5 +11,6 @@ Feature: Adding and Deleting Users
         When I click on the side bar and select "Users"
         When I see in title "Users"
         When I click on the button "Create"
-        Then I see in title "Create User"
+        When I see in title "Create User"
+        Then I create a new user
 

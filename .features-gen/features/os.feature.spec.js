@@ -15,7 +15,8 @@ test.describe("Adding and Deleting Users", () => {
     await When("I click on the side bar and select \"Users\"", null, { page });
     await When("I see in title \"Users\"", null, { page });
     await When("I click on the button \"Create\"", null, { page });
-    await Then("I see in title \"Create User\"", null, { page });
+    await When("I see in title \"Create User\"", null, { page });
+    await Then("I create a new user", null, { page });
   });
 
 });
