@@ -63,6 +63,36 @@ When('I create a new user', async ({ page }, keyword) => {
   await page.locator('#pv_id_9').getByRole('combobox').click();
   await page.getByLabel('BC Children\'s Hospital').click();
   await page.getByRole('button', { name: 'Create' }).click();
+  await expect(page.getByRole('heading', { name: firstName })).toBeVisible();
+  await expect(page.getByRole('heading', { name: lastName })).toBeVisible();
+});
+
+
+
+
+When('I create a new Collection Protocol', async ({ page }, keyword) => {
+  const randomInt = Math.floor(Math.random() * 99999999);
+  const shortTitle = 'TestShortTitle' + randomInt;
+  const title = 'testTitle' + randomInt;
+  //const email = 'shlfung' + randomInt + '@live.ca';
+  //const userName = 'Tester' + randomInt;
+
+  await page.locator('ng-form div').filter({ hasText: 'Sites Sites' }).getByLabel('Select box').click();
+  await page.getByText('BC Children\'s Hospital BioBank').click();
+  await page.locator('input[name="title"]').click();
+  await page.locator('input[name="title"]').fill(title);
+  await page.locator('input[name="shortTitle"]').click();
+  await page.locator('input[name="shortTitle"]').fill(shortTitle);
+  await page.locator('ng-form').getByLabel('Select box activate').click();
+  await page.getByRole('option', { name: 'Adam Velenosi' }).locator('span').first().click();
+  await page.getByText('Participant Centric').click();
+  await page.getByRole('button', { name: 'Create' }).click();
+  await expect(page.getByRole('heading', { name: shortTitle })).toBeVisible();
+  //await page.getByRole('heading', { name: 'TEST555' }).locator('span').click();
+  //await page.getByText('Title', { exact: true }).click();
+  //await page.getByText('TEST555').nth(1).click();
+  //await page.getByText('Short Title').click();
+  //await page.getByText('TEST555').nth(2).click();
 });
 
 
